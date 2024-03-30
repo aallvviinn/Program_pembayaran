@@ -1,0 +1,89 @@
+# include <iostream>
+using namespace std;
+
+class Menumakanan{
+	public:
+		string nama_konsumen, tmb_menu;
+		int pilih_makanan;
+		int AyamGeprek = 21000, AyamGoreng = 17000, UdangGoreng = 19000, CumiGoreng = 20000, AyamBakar = 25000;
+	
+	void input_makanan(){
+		cout << "Nama Konsumen: ";
+		cin >> nama_konsumen;
+		
+		do {
+			cout << "Menu Makanan\n";
+			cout << "1. Ayam geprek : Rp. " << AyamGeprek << endl;
+	    	cout << "2. Ayam goreng : Rp. " << AyamGoreng << endl;
+	    	cout << "3. Udang goreng : Rp. " << UdangGoreng << endl;
+	    	cout << "4. Cumi goreng : Rp. " << CumiGoreng << endl;
+	    	cout << "5. Ayam bakar : Rp. " << AyamBakar  << endl;
+			cout << "Pilih Menu Makanan: ";
+			cin >> pilih_makanan;
+			switch(pilih_makanan){
+				case 1:
+					AyamGeprek;
+					break;
+				case 2:
+					AyamGoreng;
+					break;
+				case 3:
+					UdangGoreng;
+					break;
+				case 4:
+					CumiGoreng;
+					break;
+				case 5:
+					AyamBakar;
+					break;
+				default:
+					cout << "Abis";
+			}
+			cout << "\n";
+	    	cout << "Tambah Lagi(y/n):" ;
+	    	cin >> tmb_menu;
+			
+		} while(tmb_menu == "y" || tmb_menu == "Y" );
+	}
+};
+
+class Pembayaran{
+	public:
+		int Total = 0;
+		int deliveryee = 0;
+		
+		void pembayaran(int total, int jarak){
+			Total += total;
+			
+			if (jarak<=5){
+				deliveryee = 1500;
+			} else{
+				deliveryee = 2500;
+			}
+			cout << Total; 
+		}
+};
+
+class Nota{
+	public:
+		void nota_makanan(string nama, int total_makanan, int jarak, int ongkos, int total){
+			
+			cout << "Nama Konsumen:  " << nama << endl;
+//			cout << "Total Makanan: Rp. " << total_makanan << endl;
+//			cout << "Jarak Tempuh: Rp. " << jarak << endl;
+//			cout << "Ongkos Kirim : Rp. " << ongkos << endl;
+//			cout << "Tota yang Dibayarkan: Rp. " << total << endl;
+		}
+};
+
+main(){
+	Menumakanan rm1;
+	Pembayaran pby;
+	Nota nota;
+	
+	rm1.input_makanan();
+	pby.pembayaran(rm1.pilih_makanan, 5);
+//	nota.nota_makanan(rm1.nama_konsumen);
+	
+	return 0;
+}
